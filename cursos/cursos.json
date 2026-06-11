@@ -1,0 +1,12 @@
+[
+  {
+    "id": "contabilidad-basica",
+    "titulo": "Contabilidad Básica para Emprendedores y Servidores Públicos",
+    "descripcion": "Aprende los fundamentos de la contabilidad de forma práctica y aplícalos tanto en tu negocio como en el sector público panameño. Ideal para emprendedores y funcionarios públicos.",
+    "nivel": "Básico",
+    "duracion": "26 horas",
+    "modulos": 5,
+    "url": "/cursos/contabilidad-basica/",
+    "estado": "Disponible"
+  }
+]
