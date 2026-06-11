@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Cursos | PTY Aprende</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Poppins', system_ui, sans-serif;
+            font-weight: 600;
+        }
+
+        .course-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .nav-scrolled {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-x-3">
+                    <a href="../index.html" class="flex items-center gap-x-3">
+                        <div class="w-9 h-9 bg-[#003366] rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-graduation-cap text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-2xl tracking-tighter" style="color: #003366;">PTY</span>
+                            <span class="font-bold text-2xl tracking-tighter" style="color: #2E8B57;">Aprende</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <a href="../index.html" class="text-sm font-medium text-[#003366] hover:text-[#FF6B35] transition-colors flex items-center gap-x-2">
+                    <i class="fa-solid fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="bg-white border-b">
+        <div class="max-w-screen-xl mx-auto px-6 py-10">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-x-2 bg-[#e6f0ff] text-[#003366] px-4 py-1.5 rounded-3xl text-sm font-semibold mb-4">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>CATÁLOGO DE CURSOS</span>
+                </div>
+                <h1 class="text-4xl font-bold tracking-tight text-[#003366]">Explora nuestros cursos</h1>
+                <p class="mt-3 text-xl text-gray-600">
+                    Cursos gratuitos, prácticos y con certificado digital. Diseñados especialmente para panameños.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros (simple) -->
+    <div class="max-w-screen-xl mx-auto px-6 pt-8">
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+            <div class="text-sm font-medium text-gray-500">Filtrar por nivel:</div>
+            <button onclick="filterCourses('all')" 
+                    class="filter-btn active px-4 py-1.5 text-sm rounded-2xl border border-gray-200 hover:bg-gray-100 transition-colors"
+                    id="filter-all">
+                Todos
+            </button>
+            <button onclick="filterCourses('Básico')" 
+                    class="filter-btn px-4 py-1.5 text-sm rounded-2xl border border-gray-200 hover:bg-gray-100 transition-colors"
+                    id="filter-Básico">
+                Básico
+            </button>
+            <button onclick="filterCourses('Intermedio')" 
+                    class="filter-btn px-4 py-1.5 text-sm rounded-2xl border border-gray-200 hover:bg-gray-100 transition-colors"
+                    id="filter-Intermedio">
+                Intermedio
+            </button>
+        </div>
+    </div>
+
+    <!-- Grid de Cursos -->
+    <div class="max-w-screen-xl mx-auto px-6 pb-16">
+        <div id="courses-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Las tarjetas se generan dinámicamente con JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        let allCourses = [];
+
+        // Cargar cursos desde cursos.json
+        async function loadCourses() {
+            try {
+                const response = await fetch('cursos.json');
+                const courses = await response.json();
+                allCourses = courses;
+                renderCourses(courses);
+            } catch (error) {
+                console.error('Error cargando cursos:', error);
+                document.getElementById('courses-grid').innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <p class="text-red-500">Error al cargar los cursos. Por favor intenta más tarde.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Renderizar las tarjetas de cursos
+        function renderCourses(courses) {
+            const grid = document.getElementById('courses-grid');
+            grid.innerHTML = '';
+
+            if (courses.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <p class="text-gray-500">No se encontraron cursos.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            courses.forEach(course => {
+                const card = document.createElement('div');
+                card.className = `course-card bg-white border border-gray-100 rounded-3xl p-6 flex flex-col`;
+                card.dataset.nivel = course.nivel;
+
+                card.innerHTML = `
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 text-xs font-semibold rounded-2xl ${course.nivel === 'Básico' ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}">
+                                ${course.nivel}
+                            </span>
+                            <span class="text-xs text-gray-500">${course.duracion}</span>
+                        </div>
+                        
+                        <h3 class="font-bold text-xl text-[#003366] mb-3 leading-tight">${course.titulo}</h3>
+                        
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">${course.descripcion}</p>
+                        
+                        <div class="flex items-center gap-x-4 text-sm text-gray-500 mb-5">
+                            <div class="flex items-center gap-x-1.5">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span>${course.modulos} módulos</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4 border-t flex items-center justify-between">
+                        <a href="${course.url}" 
+                           class="inline-flex items-center justify-center px-5 py-2.5 bg-[#003366] hover:bg-[#002244] text-white text-sm font-semibold rounded-2xl transition-colors">
+                            Ver curso
+                        </a>
+                        
+                        ${course.estado === 'Disponible' ? 
+                            `<span class="text-xs px-3 py-1 bg-green-100 text-green-700 rounded-2xl font-medium">Disponible</span>` : 
+                            `<span class="text-xs px-3 py-1 bg-gray-200 text-gray-600 rounded-2xl font-medium">Próximamente</span>`
+                        }
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+
+        // Filtrar cursos
+        function filterCourses(nivel) {
+            // Quitar clase active de todos los botones
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active', 'bg-[#003366]', 'text-white'));
+            
+            // Activar el botón seleccionado
+            const activeBtn = document.getElementById(`filter-${nivel}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-[#003366]', 'text-white');
+            } else {
+                document.getElementById('filter-all').classList.add('active', 'bg-[#003366]', 'text-white');
+            }
+
+            let filtered = allCourses;
+
+            if (nivel !== 'all') {
+                filtered = allCourses.filter(course => course.nivel === nivel);
+            }
+
+            renderCourses(filtered);
+        }
+
+        // Inicializar
+        function init() {
+            loadCourses();
+
+            // Activar botón "Todos" por defecto
+            setTimeout(() => {
+                const allBtn = document.getElementById('filter-all');
+                if (allBtn) allBtn.classList.add('active', 'bg-[#003366]', 'text-white');
+            }, 500);
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
