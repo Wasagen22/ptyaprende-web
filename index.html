@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTY Aprende • Educación Gratuita para Panamá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@600&amp;display=swap');
+        
+        :root {
+            --primary-blue: #003366;
+            --primary-green: #2E8B57;
+            --accent-orange: #FF6B35;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Poppins', system_ui, sans-serif;
+            font-weight: 600;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #003366 0%, #1a4d80 100%);
+        }
+
+        .section-header {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 700;
+            color: #003366;
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .nav-active {
+            color: #FF6B35;
+            font-weight: 600;
+        }
+
+        .learning-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            line-height: 2.75rem;
+            font-weight: 700;
+            color: #003366;
+        }
+
+        .btn-primary {
+            background-color: #FF6B35;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #003366;
+            border: 2px solid #003366;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #003366;
+            color: white;
+        }
+
+        .module-badge {
+            background-color: #e6f0ff;
+            color: #003366;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .footer {
+            background-color: #003366;
+            color: #e0e7ff;
+        }
+
+        .nav-scrolled {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="w-11 h-11 bg-[#003366] rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-graduation-cap text-white text-3xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-3xl tracking-tighter" style="color: #003366;">PTY</span>
+                        <span class="font-bold text-3xl tracking-tighter" style="color: #2E8B57;">Aprende</span>
+                    </div>
+                </div>
+
+                <!-- Menu -->
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#mision" class="hover:text-[#FF6B35] transition-colors">Misión</a>
+                    <a href="#aprende" class="hover:text-[#FF6B35] transition-colors">Qué Aprenderás</a>
+                    <a href="#como-funciona" class="hover:text-[#FF6B35] transition-colors">Cómo Funciona</a>
+                    <a href="#futuro" class="hover:text-[#FF6B35] transition-colors">Impacto Futuro</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <a href="https://www.instagram.com/ptyaprende/" target="_blank" 
+                       class="flex items-center gap-x-2 px-4 py-2 text-sm font-semibold text-[#003366] hover:bg-gray-100 rounded-2xl transition-colors">
+                        <i class="fa-brands fa-instagram text-xl"></i>
+                        <span class="hidden sm:inline">Instagram</span>
+                    </a>
+                    <a href="mailto:ptyaprende@gmail.com" 
+                       class="btn-primary px-6 py-2.5 rounded-2xl text-sm font-semibold flex items-center gap-x-2">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Contactar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white">
+        <div class="max-w-screen-xl mx-auto px-6 pt-16 pb-20">
+            <div class="grid md:grid-cols-12 gap-10 items-center">
+                <div class="md:col-span-7">
+                    <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-3xl mb-6">
+                        <div class="w-2 h-2 bg-[#FF6B35] rounded-full animate-pulse"></div>
+                        <span class="text-sm font-medium tracking-wider">PROYECTO PERSONAL • PANAMÁ 2026</span>
+                    </div>
+                    
+                    <h1 class="text-6xl md:text-7xl leading-[1.05] tracking-tighter font-bold mb-6">
+                        Aprende gratis.<br>
+                        <span class="text-[#FF6B35]">Crece profesionalmente.</span><br>
+                        Conoce tu Panamá.
+                    </h1>
+                    
+                    <p class="max-w-lg text-xl text-white/90 mb-10">
+                        La plataforma educativa gratuita que te da herramientas prácticas para el trabajo 
+                        y te enseña cómo funcionan realmente las instituciones públicas de Panamá.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#aprende" 
+                           class="btn-primary inline-flex items-center justify-center gap-x-3 px-8 py-4 rounded-3xl text-lg font-semibold">
+                            <span>Explorar qué puedes aprender</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#futuro" 
+                           class="btn-secondary inline-flex items-center justify-center gap-x-3 px-8 py-4 rounded-3xl text-lg font-semibold">
+                            Ver el impacto futuro
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 flex items-center gap-x-4 text-sm">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 bg-white/20 rounded-full border border-white/30"></div>
+                            <div class="w-8 h-8 bg-white/20 rounded-full border border-white/30"></div>
+                            <div class="w-8 h-8 bg-white/20 rounded-full border border-white/30"></div>
+                        </div>
+                        <span class="text-white/80">Únete a cientos de panameños que ya están creciendo</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 relative">
+                    <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-3 shadow-2xl border border-white/20">
+                        <img src="logo.png" alt="Logo PTY Aprende" class="w-full max-w-[320px] mx-auto rounded-2xl shadow-xl">
+                        <div class="text-center mt-4 text-sm text-white/70">
+                            Tu nuevo aliado para el desarrollo profesional
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="border-b bg-white">
+        <div class="max-w-screen-xl mx-auto px-6 py-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                    <div class="stat-number">100%</div>
+                    <div class="text-sm text-gray-500 font-medium">Gratuito para siempre</div>
+                </div>
+                <div>
+                    <div class="stat-number">+15</div>
+                    <div class="text-sm text-gray-500 font-medium">Cursos planeados</div>
+                </div>
+                <div>
+                    <div class="stat-number">Panamá</div>
+                    <div class="text-sm text-gray-500 font-medium">Enfoque 100% local</div>
+                </div>
+                <div>
+                    <div class="stat-number">Certificado</div>
+                    <div class="text-sm text-gray-500 font-medium">Digital profesional</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Misión Section -->
+    <section id="mision" class="max-w-screen-xl mx-auto px-6 py-20">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+            <div class="module-badge mx-auto mb-4">NUESTRA RAZÓN DE SER</div>
+            <h2 class="section-header">Un proyecto personal con propósito</h2>
+            <p class="mt-4 text-xl text-gray-600">
+                PTY Aprende nace como un proyecto personal para democratizar el conocimiento práctico 
+                que realmente importa en la vida laboral de los panameños.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-8 rounded-3xl border border-gray-100">
+                <div class="w-12 h-12 bg-[#003366] text-white rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-briefcase text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-3">Habilidades que se pagan</h3>
+                <p class="text-gray-600">Excel, Word, PowerPoint, habilidades blandas de comunicación, liderazgo y productividad. Herramientas que abren puertas en cualquier trabajo.</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-3xl border border-gray-100">
+                <div class="w-12 h-12 bg-[#2E8B57] text-white rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-landmark text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-3">Conoce tu país</h3>
+                <p class="text-gray-600">¿Qué hace realmente la Contraloría? ¿Cómo funciona ACODECO? ¿Qué rol tiene la Autoridad de la Micro, Pequeña y Mediana Empresa? Aprende las competencias de las instituciones que te afectan diariamente.</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-3xl border border-gray-100">
+                <div class="w-12 h-12 bg-[#FF6B35] text-white rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-users text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-3">Para todos los panameños</h3>
+                <p class="text-gray-600">Estudiantes, funcionarios públicos, emprendedores, empleados privados o quienes buscan su primer empleo. Sin barreras económicas ni geográficas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qué Aprenderás -->
+    <section id="aprende" class="bg-white py-16 border-t border-b">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
+                <div>
+                    <div class="module-badge mb-3">CATÁLOGO DE APRENDIZAJE</div>
+                    <h2 class="section-header">Tres pilares de crecimiento</h2>
+                </div>
+                <a href="#" class="mt-4 md:mt-0 text-[#FF6B35] font-semibold flex items-center gap-x-2 group">
+                    Ver todos los cursos 
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Pilar 1 -->
+                <div class="learning-card border border-gray-100 p-8 card-hover">
+                    <div class="flex items-center gap-x-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-[#003366] to-[#1a4d80] rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-laptop-code text-white text-3xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-xl">Herramientas Digitales</div>
+                            <div class="text-sm text-[#003366] font-medium">Nivel Básico → Avanzado</div>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>Excel para el trabajo real (fórmulas, tablas dinámicas, dashboards)</span></li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>Word profesional y documentos institucionales</span></li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>PowerPoint que impacta + Google Workspace</span></li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>Organización digital y productividad</span></li>
+                    </ul>
+                    <div class="mt-6 pt-6 border-t text-xs uppercase tracking-widest text-gray-400 font-semibold">PRÓXIMAMENTE: 6 cursos</div>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="learning-card border border-gray-100 p-8 card-hover">
+                    <div class="flex items-center gap-x-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-[#2E8B57] to-[#1e6b42] rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-comments text-white text-3xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-xl">Habilidades Blandas</div>
+                            <div class="text-sm text-[#2E8B57] font-medium">Imprescindibles en 2026</div>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>Comunicación efectiva y redacción profesional</span></li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>Trabajo en equipo y liderazgo ético</span></li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>Gestión del tiempo y productividad personal</span></li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>Inteligencia emocional en el entorno laboral</span></li>
+                    </ul>
+                    <div class="mt-6 pt-6 border-t text-xs uppercase tracking-widest text-gray-400 font-semibold">PRÓXIMAMENTE: 5 cursos</div>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="learning-card border border-gray-100 p-8 card-hover">
+                    <div class="flex items-center gap-x-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-[#FF6B35] to-[#e55a2b] rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-building text-white text-3xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-xl">Instituciones Públicas</div>
+                            <div class="text-sm text-[#FF6B35] font-medium">Conoce tu Estado</div>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>¿Qué hace la Contraloría General?</span></li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>ACODECO: tus derechos como consumidor</span></li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>Ministerios clave y cómo interactuar con ellos</span></li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#2E8B57] mt-1"></i> <span>Transparencia, participación ciudadana y rendición de cuentas</span></li>
+                    </ul>
+                    <div class="mt-6 pt-6 border-t text-xs uppercase tracking-widest text-gray-400 font-semibold">PRÓXIMAMENTE: 8 cursos + guías interactivas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Funciona -->
+    <section id="como-funciona" class="max-w-screen-xl mx-auto px-6 py-20">
+        <div class="max-w-2xl mx-auto text-center mb-12">
+            <div class="module-badge mx-auto mb-4">PROCESO SIMPLE</div>
+            <h2 class="section-header">Así de fácil es empezar</h2>
+            <p class="text-xl text-gray-600 mt-3">Diseñado para que cualquier persona pueda aprender sin complicaciones.</p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div class="text-center">
+                <div class="mx-auto w-16 h-16 bg-[#003366] text-white rounded-2xl flex items-center justify-center text-3xl font-bold mb-5">1</div>
+                <h4 class="font-semibold mb-2">Elige tu curso</h4>
+                <p class="text-sm text-gray-600">Explora el catálogo y selecciona el tema que más te interesa o necesitas para tu trabajo.</p>
+            </div>
+            <div class="text-center">
+                <div class="mx-auto w-16 h-16 bg-[#003366] text-white rounded-2xl flex items-center justify-center text-3xl font-bold mb-5">2</div>
+                <h4 class="font-semibold mb-2">Aprende a tu ritmo</h4>
+                <p class="text-sm text-gray-600">Lecciones cortas, videos, ejercicios prácticos y quizzes. Avanza cuando quieras, desde tu celular o computadora.</p>
+            </div>
+            <div class="text-center">
+                <div class="mx-auto w-16 h-16 bg-[#003366] text-white rounded-2xl flex items-center justify-center text-3xl font-bold mb-5">3</div>
+                <h4 class="font-semibold mb-2">Completa y aprueba</h4>
+                <p class="text-sm text-gray-600">Termina todos los módulos + evaluación final (mínimo 70%). ¡Listo!</p>
+            </div>
+            <div class="text-center">
+                <div class="mx-auto w-16 h-16 bg-[#FF6B35] text-white rounded-2xl flex items-center justify-center text-3xl font-bold mb-5">4</div>
+                <h4 class="font-semibold mb-2">Recibe tu certificado</h4>
+                <p class="text-sm text-gray-600">Certificado digital profesional con código de verificación. Perfecto para tu CV o perfil de LinkedIn.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impacto Futuro -->
+    <section id="futuro" class="bg-[#003366] text-white py-20">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                <div class="md:col-span-5 mb-10 md:mb-0">
+                    <div class="inline-block px-4 py-1 bg-white/10 text-sm font-medium rounded-3xl mb-4">EL SIGUIENTE PASO</div>
+                    <h2 class="text-5xl leading-tight tracking-tighter font-bold mb-6">De la pantalla<br>a las aulas y<br>las instituciones</h2>
+                    <p class="text-white/80 text-lg">Una vez consolidados los cursos gratuitos online, PTY Aprende evolucionará hacia seminarios y talleres presenciales o híbridos dirigidos a:</p>
+                </div>
+                
+                <div class="md:col-span-7">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white/10 backdrop-blur p-6 rounded-3xl">
+                            <i class="fa-solid fa-school text-3xl mb-4 text-[#FF6B35]"></i>
+                            <div class="font-semibold text-xl mb-1">Colegios y universidades</div>
+                            <p class="text-white/70 text-sm">Talleres de habilidades blandas y herramientas digitales para estudiantes de último año y egresados.</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur p-6 rounded-3xl">
+                            <i class="fa-solid fa-building text-3xl mb-4 text-[#FF6B35]"></i>
+                            <div class="font-semibold text-xl mb-1">Instituciones públicas</div>
+                            <p class="text-white/70 text-sm">Capacitaciones internas sobre control interno, gestión documental, Excel avanzado y conocimiento institucional.</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur p-6 rounded-3xl">
+                            <i class="fa-solid fa-handshake text-3xl mb-4 text-[#FF6B35]"></i>
+                            <div class="font-semibold text-xl mb-1">ONGs y fundaciones</div>
+                            <p class="text-white/70 text-sm">Programas de formación para beneficiarios y equipos de trabajo.</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur p-6 rounded-3xl">
+                            <i class="fa-solid fa-briefcase text-3xl mb-4 text-[#FF6B35]"></i>
+                            <div class="font-semibold text-xl mb-1">Empresas privadas</div>
+                            <p class="text-white/70 text-sm">Talleres personalizados de productividad y habilidades para equipos laborales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="max-w-screen-xl mx-auto px-6 py-16 text-center">
+        <div class="max-w-xl mx-auto">
+            <h2 class="text-4xl font-bold tracking-tight mb-4">¿Listo para empezar a crecer?</h2>
+            <p class="text-xl text-gray-600 mb-8">PTY Aprende es un proyecto personal hecho con ❤️ para Panamá. Totalmente gratuito, sin anuncios y con certificados reales.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://www.instagram.com/ptyaprende/" target="_blank" 
+                   class="btn-primary px-10 py-4 rounded-3xl text-lg font-semibold inline-flex items-center justify-center gap-x-3">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                    <span>Síguenos en Instagram</span>
+                </a>
+                <a href="mailto:ptyaprende@gmail.com?subject=Quiero%20colaborar%20con%20PTY%20Aprende" 
+                   class="px-10 py-4 rounded-3xl text-lg font-semibold inline-flex items-center justify-center gap-x-3 border-2 border-[#003366] text-[#003366] hover:bg-gray-100 transition">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Escríbeme por correo</span>
+                </a>
+            </div>
+            
+            <p class="mt-8 text-xs text-gray-500 max-w-md mx-auto">
+                Los certificados de PTY Aprende son reconocimientos de completación emitidos por este proyecto personal. 
+                No tienen validez oficial regulatoria salvo que se indique expresamente en el futuro.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer pt-12 pb-8">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-y-6 text-sm">
+                <div class="flex items-center gap-x-3">
+                    <div class="flex items-center gap-x-2">
+                        <span class="font-bold text-xl">PTY Aprende</span>
+                    </div>
+                    <span class="text-white/40">•</span>
+                    <span class="text-white/60">© 2026 Proyecto Personal</span>
+                </div>
+                
+                <div class="flex gap-x-6 text-white/70">
+                    <a href="#" class="hover:text-white transition">Política de privacidad</a>
+                    <a href="#" class="hover:text-white transition">Términos</a>
+                    <a href="mailto:ptyaprende@gmail.com" class="hover:text-white transition">Contacto</a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/50">
+                Hecho con propósito en Panamá. Este es un proyecto personal independiente creado para aportar valor a la comunidad.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#FF6B35');
+        }
+        
+        // Simple scroll behavior for nav
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+        
+        // Initialize
+        initializeTailwind();
+        
+        // Easter egg: console message
+        console.log('%c[PTY Aprende] Gracias por visitar. Este sitio es el primer paso de un gran proyecto personal para Panamá.', 'color:#94a3b8');
+    </script>
+</body>
+</html>
