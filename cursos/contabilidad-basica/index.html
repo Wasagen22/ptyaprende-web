@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1 • Contabilidad Básica para Emprendedores y Servidores Públicos | PTY Aprende</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Poppins', system_ui, sans-serif;
+            font-weight: 600;
+        }
+
+        .section-header {
+            font-size: 1.75rem;
+            line-height: 2rem;
+            font-weight: 700;
+            color: #003366;
+        }
+
+        .nav-active {
+            color: #FF6B35;
+            font-weight: 600;
+        }
+
+        .lesson-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary {
+            background-color: #FF6B35;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #003366;
+            border: 2px solid #003366;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #003366;
+            color: white;
+        }
+
+        .module-badge {
+            background-color: #e6f0ff;
+            color: #003366;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .nav-scrolled {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        .lesson-number {
+            background-color: #003366;
+            color: white;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .content-prose {
+            max-width: 100%;
+            line-height: 1.75;
+        }
+
+        .example-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #2E8B57;
+            padding: 1rem 1.25rem;
+            border-radius: 0 12px 12px 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <a href="../index.html" class="flex items-center gap-x-3">
+                        <div class="w-9 h-9 bg-[#003366] rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-graduation-cap text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-2xl tracking-tighter" style="color: #003366;">PTY</span>
+                            <span class="font-bold text-2xl tracking-tighter" style="color: #2E8B57;">Aprende</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <a href="index.html" 
+                       class="flex items-center gap-x-2 px-4 py-2 text-sm font-medium text-[#003366] hover:bg-gray-100 rounded-2xl transition-colors">
+                        <i class="fa-solid fa-arrow-left mr-2"></i>
+                        <span>Volver al curso</span>
+                    </a>
+                    
+                    <div class="hidden md:flex items-center gap-x-2 text-sm">
+                        <div class="px-3 py-1 bg-[#e6f0ff] text-[#003366] rounded-2xl text-xs font-semibold">
+                            Módulo 1 de 5
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header del Módulo -->
+    <header class="bg-white border-b">
+        <div class="max-w-screen-xl mx-auto px-6 pt-8 pb-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-y-4">
+                <div>
+                    <div class="flex items-center gap-x-3 mb-3">
+                        <span class="module-badge">MÓDULO 1</span>
+                        <span class="text-sm text-gray-500">• 5 horas estimadas</span>
+                    </div>
+                    <h1 class="text-4xl font-bold tracking-tight text-[#003366]">
+                        Fundamentos de la Contabilidad<br>
+                        <span class="text-[#FF6B35]">— ¿Por qué importa?</span>
+                    </h1>
+                    <p class="mt-3 max-w-2xl text-lg text-gray-600">
+                        Entiende qué es realmente la contabilidad, quién la usa y cómo la ecuación contable fundamental gobierna todo el sistema.
+                    </p>
+                </div>
+                
+                <div class="flex items-center gap-x-3">
+                    <div class="text-right">
+                        <div class="text-sm text-gray-500">Progreso del módulo</div>
+                        <div class="font-semibold text-[#003366]">3 lecciones + Quiz</div>
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-[#e6f0ff] flex items-center justify-center">
+                        <i class="fa-solid fa-book text-3xl text-[#003366]"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-screen-xl mx-auto px-6">
+        
+        <!-- Objetivo del Módulo -->
+        <div class="my-8 p-6 bg-white rounded-3xl border border-gray-100">
+            <div class="flex items-start gap-x-4">
+                <div class="w-10 h-10 bg-[#003366] text-white rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-bullseye text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Objetivo de este módulo</h3>
+                    <p class="text-gray-600">
+                        Al finalizar este módulo serás capaz de explicar qué es la contabilidad, identificar a los principales usuarios de la información contable 
+                        y aplicar correctamente la ecuación contable fundamental (Activo = Pasivo + Patrimonio Neto).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lección 1.1 -->
+        <div class="mb-10">
+            <div class="flex items-center gap-x-4 mb-4">
+                <div class="lesson-number">1</div>
+                <div>
+                    <span class="text-sm font-medium text-[#FF6B35]">LECCIÓN 1.1</span>
+                    <h2 class="text-2xl font-bold text-[#003366]">¿Qué es la contabilidad y para qué sirve realmente?</h2>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-3xl border border-gray-100 p-8 lesson-card">
+                <div class="content-prose text-gray-700">
+                    <p class="text-lg">Muchas personas creen que la contabilidad es solo "anotar números" o llevar un cuaderno de gastos. En realidad, <strong>la contabilidad es mucho más que eso</strong>.</p>
+                    
+                    <p class="mt-4">La contabilidad es el <strong>sistema de información</strong> que permite registrar, clasificar, resumir y comunicar las operaciones económicas de una persona, negocio o institución. Su objetivo principal no es solo llevar registros, sino <strong>generar información útil para tomar mejores decisiones</strong>.</p>
+                    
+                    <div class="mt-6 p-5 bg-[#f0fdf4] border border-[#2E8B57]/30 rounded-2xl">
+                        <p class="font-semibold text-[#166534]">Piensa en la contabilidad como el <strong>idioma de los negocios</strong>.</p>
+                        <p class="text-sm mt-1">Así como el español te permite comunicarte con otras personas, la contabilidad te permite entender y comunicar la situación económica de un negocio o de una entidad pública.</p>
+                    </div>
+
+                    <h3 class="mt-6">¿Por qué es importante la contabilidad?</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mt-4">
+                        <div class="p-4 border border-gray-200 rounded-2xl">
+                            <div class="font-semibold mb-1 flex items-center gap-x-2">
+                                <i class="fa-solid fa-lightbulb text-[#FF6B35]"></i>
+                                <span>Para tomar decisiones</span>
+                            </div>
+                            <p class="text-sm">Saber si el negocio está ganando o perdiendo dinero, si puedes contratar más personal, comprar maquinaria o reducir gastos.</p>
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-2xl">
+                            <div class="font-semibold mb-1 flex items-center gap-x-2">
+                                <i class="fa-solid fa-shield-alt text-[#003366]"></i>
+                                <span>Para controlar</span>
+                            </div>
+                            <p class="text-sm">Detectar errores, fraudes o fugas de dinero a tiempo.</p>
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-2xl">
+                            <div class="font-semibold mb-1 flex items-center gap-x-2">
+                                <i class="fa-solid fa-balance-scale text-[#2E8B57]"></i>
+                                <span>Para cumplir con la ley</span>
+                            </div>
+                            <p class="text-sm">En Panamá, tanto los emprendedores como las instituciones públicas tienen obligaciones de llevar registros contables.</p>
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-2xl">
+                            <div class="font-semibold mb-1 flex items-center gap-x-2">
+                                <i class="fa-solid fa-handshake text-[#FF6B35]"></i>
+                                <span>Para rendir cuentas</span>
+                            </div>
+                            <p class="text-sm">En el sector público, la contabilidad es la base de la transparencia y la rendición de cuentas ante la ciudadanía.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-box mt-6">
+                        <p class="font-semibold text-[#003366] mb-2">Ejemplo práctico (Panamá):</p>
+                        <p class="text-sm">María tiene una fonda en Juan Díaz. Anotaba todo en un cuaderno pero no sabía si estaba ganando dinero. Al llevar contabilidad básica descubrió que el 35% de sus ingresos se iba en desperdicio de comida. Cambió proveedores y controló mejor los gastos pequeños. En tres meses su utilidad aumentó un 28%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lección 1.2 -->
+        <div class="mb-10">
+            <div class="flex items-center gap-x-4 mb-4">
+                <div class="lesson-number">2</div>
+                <div>
+                    <span class="text-sm font-medium text-[#FF6B35]">LECCIÓN 1.2</span>
+                    <h2 class="text-2xl font-bold text-[#003366]">Usuarios de la información contable</h2>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-3xl border border-gray-100 p-8 lesson-card">
+                <div class="content-prose text-gray-700">
+                    <p>La información contable no se genera solo para el dueño del negocio o para el contador. Existen muchos <strong>usuarios</strong> que necesitan esa información para tomar decisiones.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        
+                        <!-- Usuarios Internos -->
+                        <div>
+                            <div class="font-bold text-lg mb-3 flex items-center gap-x-2 text-[#003366]">
+                                <i class="fa-solid fa-users"></i>
+                                <span>Usuarios Internos</span>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="p-4 border border-gray-200 rounded-2xl">
+                                    <p class="font-semibold">El emprendedor / dueño del negocio</p>
+                                    <p class="text-sm text-gray-600">Necesita saber si está ganando dinero, cuánto puede reinvertir o contratar personal.</p>
+                                </div>
+                                <div class="p-4 border border-gray-200 rounded-2xl">
+                                    <p class="font-semibold">Gerentes y administradores</p>
+                                    <p class="text-sm text-gray-600">Usan la información para planificar, controlar gastos y evaluar resultados.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Usuarios Externos -->
+                        <div>
+                            <div class="font-bold text-lg mb-3 flex items-center gap-x-2 text-[#FF6B35]">
+                                <i class="fa-solid fa-globe"></i>
+                                <span>Usuarios Externos</span>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="p-4 border border-gray-200 rounded-2xl">
+                                    <p class="font-semibold">Bancos y entidades financieras</p>
+                                    <p class="text-sm text-gray-600">Evalúan si el negocio puede pagar un préstamo.</p>
+                                </div>
+                                <div class="p-4 border border-gray-200 rounded-2xl">
+                                    <p class="font-semibold">DGI y Contraloría</p>
+                                    <p class="text-sm text-gray-600">Fiscalizan impuestos y el uso correcto de fondos públicos.</p>
+                                </div>
+                                <div class="p-4 border border-gray-200 rounded-2xl">
+                                    <p class="font-semibold">Proveedores e inversionistas</p>
+                                    <p class="text-sm text-gray-600">Quieren saber si podrán cobrar o si su dinero está bien administrado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lección 1.3 -->
+        <div class="mb-10">
+            <div class="flex items-center gap-x-4 mb-4">
+                <div class="lesson-number">3</div>
+                <div>
+                    <span class="text-sm font-medium text-[#FF6B35]">LECCIÓN 1.3</span>
+                    <h2 class="text-2xl font-bold text-[#003366]">La ecuación contable fundamental</h2>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-3xl border border-gray-100 p-8 lesson-card">
+                <div class="content-prose text-gray-700">
+                    <p>Toda la contabilidad se basa en una <strong>ecuación fundamental</strong> que siempre se cumple:</p>
+                    
+                    <div class="my-6 p-6 bg-[#003366] text-white rounded-3xl text-center">
+                        <p class="text-2xl font-bold">Activo = Pasivo + Patrimonio Neto</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 mt-6">
+                        <div class="p-5 border border-gray-200 rounded-2xl">
+                            <div class="font-bold text-[#003366] mb-2">Activo</div>
+                            <p class="text-sm">Todo lo que la empresa posee y tiene valor (caja, banco, vehículos, inventario, cuentas por cobrar).</p>
+                        </div>
+                        <div class="p-5 border border-gray-200 rounded-2xl">
+                            <div class="font-bold text-[#FF6B35] mb-2">Pasivo</div>
+                            <p class="text-sm">Todo lo que la empresa debe a terceros (préstamos, cuentas por pagar, impuestos por pagar).</p>
+                        </div>
+                        <div class="p-5 border border-gray-200 rounded-2xl">
+                            <div class="font-bold text-[#2E8B57] mb-2">Patrimonio Neto</div>
+                            <p class="text-sm">Lo que realmente pertenece a los dueños o al Estado después de restar las deudas.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-box mt-6">
+                        <p class="font-semibold text-[#003366] mb-2">Regla sencilla de recordar:</p>
+                        <p class="text-lg font-bold">"Lo que tienes = Lo que debes + Lo que realmente te pertenece"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actividad Práctica -->
+        <div class="mb-10">
+            <div class="flex items-center gap-x-3 mb-4">
+                <i class="fa-solid fa-pencil-alt text-[#FF6B35] text-xl"></i>
+                <h2 class="text-2xl font-bold text-[#003366]">Actividad Práctica del Módulo 1</h2>
+            </div>
+            
+            <div class="bg-white rounded-3xl border border-gray-100 p-8">
+                <div class="space-y-6">
+                    <div>
+                        <p class="font-semibold mb-2">Caso A:</p>
+                        <p class="text-sm">María abre una panadería e invierte B/. 8,000 de su dinero. Además, pide prestado al banco B/. 5,000.</p>
+                        <p class="text-sm mt-2 text-gray-600">¿Cuánto es el Activo total? ¿Cuánto es el Pasivo? ¿Cuánto es el Patrimonio Neto?</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold mb-2">Caso B:</p>
+                        <p class="text-sm">Una institución pública compra una computadora por B/. 1,200 al crédito.</p>
+                        <p class="text-sm mt-2 text-gray-600">¿Cómo afecta esta operación a la ecuación contable?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz -->
+        <div class="mb-12">
+            <div class="flex items-center gap-x-3 mb-4">
+                <i class="fa-solid fa-question-circle text-[#FF6B35] text-xl"></i>
+                <h2 class="text-2xl font-bold text-[#003366]">Quiz Formativo del Módulo 1</h2>
+            </div>
+            
+            <div class="bg-white rounded-3xl border border-gray-100 p-8 space-y-8">
+                <div>
+                    <p class="font-semibold mb-3">1. La contabilidad es principalmente:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-3 border rounded-2xl">A) Un sistema para anotar gastos personales</div>
+                        <div class="p-3 border rounded-2xl bg-[#f0fdf4] border-[#2E8B57]">B) Un sistema de información para tomar decisiones económicas <span class="text-[#2E8B57] text-xs">(Correcta)</span></div>
+                        <div class="p-3 border rounded-2xl">C) Un requisito solo para grandes empresas</div>
+                        <div class="p-3 border rounded-2xl">D) Lo mismo que llevar un cuaderno de gastos</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <p class="font-semibold mb-3">2. La ecuación contable fundamental establece que:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-3 border rounded-2xl">A) Activo = Pasivo – Patrimonio</div>
+                        <div class="p-3 border rounded-2xl">B) Activo + Pasivo = Patrimonio</div>
+                        <div class="p-3 border rounded-2xl bg-[#f0fdf4] border-[#2E8B57]">C) Activo = Pasivo + Patrimonio Neto <span class="text-[#2E8B57] text-xs">(Correcta)</span></div>
+                        <div class="p-3 border rounded-2xl">D) Patrimonio = Activo + Pasivo</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <p class="font-semibold mb-3">3. El Principio de la Entidad establece que:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-3 border rounded-2xl">A) El negocio y el dueño son la misma persona</div>
+                        <div class="p-3 border rounded-2xl bg-[#f0fdf4] border-[#2E8B57]">B) El negocio debe tratarse como una entidad distinta del dueño <span class="text-[#2E8B57] text-xs">(Correcta)</span></div>
+                        <div class="p-3 border rounded-2xl">C) Solo las grandes empresas deben llevar contabilidad</div>
+                        <div class="p-3 border rounded-2xl">D) Los gastos personales pueden mezclarse con los del negocio</div>
+                    </div>
+                </div>
+                
+                <div class="pt-4 border-t">
+                    <button onclick="showAnswers()" 
+                            class="btn-primary px-8 py-3 rounded-2xl font-semibold flex items-center gap-x-2">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Ver respuestas correctas</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegación -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 pb-12">
+            <a href="index.html" class="btn-secondary px-6 py-3 rounded-2xl font-semibold flex items-center gap-x-2">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Volver a la página del curso</span>
+            </a>
+            
+            <div class="text-center">
+                <div class="text-sm text-gray-500 mb-1">Siguiente módulo</div>
+                <a href="modulo-2.html" class="btn-primary px-8 py-3 rounded-2xl font-semibold inline-flex items-center gap-x-2">
+                    <span>Módulo 2: Partida Doble y Catálogo de Cuentas</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        function showAnswers() {
+            alert("Respuestas correctas del Quiz Módulo 1:\n\n" +
+                  "1. B - Un sistema de información para tomar decisiones económicas\n" +
+                  "2. C - Activo = Pasivo + Patrimonio Neto\n" +
+                  "3. B - El negocio debe tratarse como una entidad distinta del dueño\n\n" +
+                  "Las explicaciones completas están en las lecciones del módulo.");
+        }
+        
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 30) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
